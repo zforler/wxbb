@@ -6,10 +6,37 @@ public class User {
 	private String userType;
 	private String userPhone;
 	private String userStatus;
-	private String siginTime;
-	private String loginTime;
+	private long siginTime;
+	private long loginTime;
+	private String avatarUrl;
+	private String gender;
+	private String code;
+	private String openId;
 	
-	
+	public String getOpenId() {
+		return openId;
+	}
+	public void setOpenId(String openId) {
+		this.openId = openId;
+	}
+	public String getCode() {
+		return code;
+	}
+	public void setCode(String code) {
+		this.code = code;
+	}
+	public String getAvatarUrl() {
+		return avatarUrl;
+	}
+	public void setAvatarUrl(String avatarUrl) {
+		this.avatarUrl = avatarUrl;
+	}
+	public String getGender() {
+		return gender;
+	}
+	public void setGender(String gender) {
+		this.gender = gender;
+	}
 	public String getUserId() {
 		return userId;
 	}
@@ -40,16 +67,16 @@ public class User {
 	public void setUserStatus(String userStatus) {
 		this.userStatus = userStatus;
 	}
-	public String getSiginTime() {
+	public long getSiginTime() {
 		return siginTime;
 	}
-	public void setSiginTime(String siginTime) {
+	public void setSiginTime(long siginTime) {
 		this.siginTime = siginTime;
 	}
-	public String getLoginTime() {
+	public long getLoginTime() {
 		return loginTime;
 	}
-	public void setLoginTime(String loginTime) {
+	public void setLoginTime(long loginTime) {
 		this.loginTime = loginTime;
 	}
 	
