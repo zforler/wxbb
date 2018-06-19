@@ -22,6 +22,9 @@ public class ShopService implements IShopService{
 	@Override
 	public boolean validateShopName(String name) {
 		// TODO Auto-generated method stub
+		
+		
+		
 		return shopDao.findShopByName(name) != null;
 	}
 

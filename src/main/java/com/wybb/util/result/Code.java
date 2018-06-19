@@ -2,7 +2,8 @@ package com.wybb.util.result;
 
 public enum Code {
 	 SUCCESS(1,"success"),
-	 FAILED(0,"failed");
+	 FAILED(0,"failed"),
+	 TOKENERROR(2,"token error");
 	
 	 private int code ;
 	 private String msg;

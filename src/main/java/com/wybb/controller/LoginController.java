@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.RestController;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.wybb.entity.user.User;
 import com.wybb.service.impl.UserService;
+import com.wybb.util.cache.TokenCache;
 import com.wybb.util.result.Code;
 import com.wybb.util.result.Result;
 import com.wybb.util.wx.WxUtil;
@@ -32,7 +33,7 @@ public class LoginController {
 	 * @return
 	 */
     @PostMapping("/login")
-    public Result getJson(@RequestBody Map<String, String> params,HttpSession session) {
+    public Result getJson(@RequestBody Map<String, String> params) {
 
 	   String code = params.get("code");
 	   String str = WxUtil.getWxOpenIdAndSesseionKey(code);
@@ -46,7 +47,7 @@ public class LoginController {
 	   }
 	   
 	   String openId = map.get("openid");
-	   String sessionKey = map.get("session_key");
+//	   String sessionKey = map.get("session_key");
 	   
 	   User u = userService.findUserByOpenId(openId);
 	   System.out.println(u.getUserName());
@@ -54,8 +55,11 @@ public class LoginController {
 	   if(u != null){
 		   result.setCode(Code.SUCCESS.getCode());
     	   result.setMsg(Code.SUCCESS.getMsg());
+    	   u.setCode(code);
+    	   
     	   result.setData(u);
-    	   session.setAttribute(code, u);
+    	   
+    	   TokenCache.set(code,u);
     	   return result;
 	   }
 	   
@@ -78,7 +82,7 @@ public class LoginController {
     	   result.setMsg(Code.SUCCESS.getMsg());
     	   result.setData(user);
     	   
-    	   session.setAttribute(code, user);
+    	   TokenCache.set(code,u);
        }
        else{
     	   result.setCode(Code.FAILED.getCode());
