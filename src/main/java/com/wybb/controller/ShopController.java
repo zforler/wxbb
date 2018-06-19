@@ -26,6 +26,7 @@ public class ShopController {
 	public Result createShop(@RequestBody Shop shop,HttpServletRequest request){
 		
 		Result result = new Result();
+		//检查商铺名称是否重复
 		if(shopService.validateShopName(shop.getShopName())){
 			 result.setCode(Code.FAILED.getCode());
 			 result.setMsg("店铺名称已存在！");
