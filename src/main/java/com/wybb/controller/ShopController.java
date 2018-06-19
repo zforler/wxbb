@@ -2,26 +2,56 @@ package com.wybb.controller;
 
 import javax.servlet.http.HttpServletRequest;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.multipart.MultipartFile;
 
+import com.wybb.entity.user.Shop;
+import com.wybb.service.impl.ShopService;
 import com.wybb.util.file.FileUtil;
+import com.wybb.util.result.Code;
+import com.wybb.util.result.Result;
 
 @RestController
 @RequestMapping("/shop")
 public class ShopController {
-	
-	
+	@Autowired
+	private ShopService shopService;
 	
 	@PostMapping("/add")
-	public String createShop(String shopName,String shopType,HttpServletRequest request){
-
-        System.out.println(shopType);
-        //返回json
-        return "uploadimg success";
+	public Result createShop(@RequestBody Shop shop,HttpServletRequest request){
+		
+		Result result = new Result();
+		if(shopService.validateShopName(shop.getShopName())){
+			 result.setCode(Code.FAILED.getCode());
+			 result.setMsg("店铺名称已存在！");
+			 return result;
+		}
+		
+		
+		long createTime = System.currentTimeMillis();
+		long endTime = createTime + 90 * 24 * 60 * 60 * 1000;
+		shop.setShopCreateTime(String.valueOf(createTime));
+		shop.setShopEndTime(String.valueOf(endTime));
+		
+		int res = shopService.addShop(shop);
+		
+	
+		if(res == 1){
+		   result.setCode(Code.SUCCESS.getCode());
+    	   result.setMsg("创建成功！");
+		}
+		else{
+		   result.setCode(Code.FAILED.getCode());
+		   result.setMsg("创建失败！");
+		}
+	  
+		//返回json
+      	return result;
 		
 	}
 //	
