@@ -1,6 +1,6 @@
 package com.wybb.service;
 
-import com.wybb.entity.user.User;
+import com.wybb.entity.User;
 
 public interface IUserService {
 	int addUser(User user);

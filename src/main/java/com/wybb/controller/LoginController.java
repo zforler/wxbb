@@ -12,7 +12,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.wybb.entity.user.User;
+import com.wybb.entity.User;
 import com.wybb.service.impl.UserService;
 import com.wybb.util.cache.TokenCache;
 import com.wybb.util.result.Code;

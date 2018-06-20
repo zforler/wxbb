@@ -1,6 +1,6 @@
 package com.wybb.service;
 
-import com.wybb.entity.user.Shop;
+import com.wybb.entity.Shop;
 
 public interface IShopService {
 	

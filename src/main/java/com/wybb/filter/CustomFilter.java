@@ -14,7 +14,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.wybb.entity.user.User;
+import com.wybb.entity.User;
 import com.wybb.util.cache.TokenCache;
 import com.wybb.util.result.Code;
 import com.wybb.util.result.Result;

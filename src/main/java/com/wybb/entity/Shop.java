@@ -1,4 +1,4 @@
-package com.wybb.entity.user;
+package com.wybb.entity;
 
 public class Shop {
 	private int id;

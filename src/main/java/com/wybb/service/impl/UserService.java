@@ -4,7 +4,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.wybb.dao.IUserDao;
-import com.wybb.entity.user.User;
+import com.wybb.entity.User;
 import com.wybb.service.IUserService;
 
 @Service

@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.multipart.MultipartFile;
 
-import com.wybb.entity.user.Shop;
+import com.wybb.entity.Shop;
 import com.wybb.service.impl.ShopService;
 import com.wybb.util.file.FileUtil;
 import com.wybb.util.result.Code;

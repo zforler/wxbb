@@ -4,7 +4,7 @@ import org.apache.ibatis.annotations.Insert;
 import org.apache.ibatis.annotations.Param;
 import org.apache.ibatis.annotations.Select;
 
-import com.wybb.entity.user.Shop;
+import com.wybb.entity.Shop;
 
 public interface IShopDao {
 	

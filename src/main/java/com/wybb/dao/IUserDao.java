@@ -6,7 +6,7 @@ import org.apache.ibatis.annotations.Param;
 import org.apache.ibatis.annotations.Select;
 import org.springframework.stereotype.Repository;
 
-import com.wybb.entity.user.User;
+import com.wybb.entity.User;
 
 @Mapper
 public interface IUserDao {
