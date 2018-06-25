@@ -8,6 +8,15 @@ public class Goods {
 	private String goodsPrice;
 	private int goodsStatus;
 	private String goodsCreateTime;
+	private String goodsDesc;
+	
+	
+	public String getGoodsDesc() {
+		return goodsDesc;
+	}
+	public void setGoodsDesc(String goodsDesc) {
+		this.goodsDesc = goodsDesc;
+	}
 	public int getGoodsId() {
 		return goodsId;
 	}

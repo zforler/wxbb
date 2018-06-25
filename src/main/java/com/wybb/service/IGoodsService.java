@@ -5,4 +5,6 @@ import com.wybb.entity.Goods;
 public interface IGoodsService {
 	
 	int addGoods(Goods goods);
+	
+	int getLastId();
 }
